@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
-import { createGlobalStyle } from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Teste from "./Teste";
+// import APIs from "../services/APIs";
+
+import { GlobalStyle } from "../styles/globalstyles";
+
+import Login from "./user/Login";
+
 export default function App(){
 
     return (
@@ -11,7 +15,7 @@ export default function App(){
           <BrowserRouter>
           
             <Routes>
-              <Route path="/" element={<Teste/>}/>
+              <Route path="/" element={<Login/>}/>
             </Routes>
           
           </BrowserRouter>
@@ -19,15 +23,3 @@ export default function App(){
     );
 
 }
-
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    text-decoration: none;
-  }
-`

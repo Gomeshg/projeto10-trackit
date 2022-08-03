@@ -8,8 +8,8 @@ function signUp({body}){
     return promise;
 }
 
-function login({body, config}){
-	const promise = axios.post(`${baseURL}/auth/login`, body, config);
+function login({body}){
+	const promise = axios.post(`${baseURL}/auth/login`, body);
 	return promise;
 }
 

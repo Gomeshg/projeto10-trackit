@@ -5,8 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "../styles/globalstyles";
 
 import Login from "./user/Login";
-import SignUp from './user/SignUp';
-import Teste from "./user/Teste";
+import SignUp from "./user/SignUp";
+import Today from "../components/trackit/Today"
 
 export default function App(){
 
@@ -18,7 +18,7 @@ export default function App(){
             <Routes>
               <Route path="/" element={<Login/>}/>
               <Route path="/sign-up" element={<SignUp/>}/>
-              <Route path="/Teste" element={<Teste/>}/>
+              <Route path="/Today" element={<Today/>}/>
             </Routes>
           
           </BrowserRouter>

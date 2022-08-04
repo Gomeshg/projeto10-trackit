@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 import Button from "../Button";
 import Logo from "../Logo"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function SignUp(){
     
@@ -16,6 +16,9 @@ export default function SignUp(){
     const [userName, setUserName] = useState('');
     const [picture, setPicture] = useState('');
 
+    const [stateButton, setStateButton] = useState(false);
+
+
     function signUp(e){
         e.preventDefault();
 
@@ -26,8 +29,16 @@ export default function SignUp(){
             password: password
         }
 
-        setSignUp(user).then(req => navigate('/'));
-        setSignUp(user).catch(e => console.log(e));
+        setStateButton(true)
+        setSignUp(user).then(req => {
+            setStateButton(false)
+            navigate('/')
+        });
+        setSignUp(user).catch(e => {
+            console.log(e)
+            alert('Cadastro inválido! Tente novamente...')
+            setStateButton(false)
+        });
     }
 
     // UI 
@@ -43,8 +54,9 @@ export default function SignUp(){
                 <input type="password" placeholder="Senha" value={password} onChange={e => setPassword(e.target.value)} required/>
                 <input type="text" placeholder="Nome" value={userName} onChange={e => setUserName(e.target.value)} required/>
                 <input type="url" placeholder="Foto" value={picture} onChange={e => setPicture(e.target.value)} required/>            
-                <Button type="submit" text="Cadastrar"/>
+                <Button stateButton={stateButton} type="submit" text="Cadastrar"/>
             </form>
+            <Link to="/">Não possui uma conta? Faça login!</Link>
         </Wrapper>
     );
 }
@@ -55,5 +67,5 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
 `;

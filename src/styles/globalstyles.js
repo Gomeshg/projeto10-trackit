@@ -16,10 +16,15 @@ const GlobalStyle = createGlobalStyle`
 
   h1{
     font-family: 'Playball', sans-serif;
-    font-weight: 400;
     font-size: 68px;
     color: rgba(18, 107, 165, 1);
     text-align: center;
+  }
+
+  h2{
+    font-family: 'Playball', sans-serif;
+    font-size: 39px;
+    color: white;
   }
 
   form{
@@ -40,6 +45,13 @@ const GlobalStyle = createGlobalStyle`
     color: rgba(219, 219, 219, 1);
 
     padding-left: 10px;
+  }
+
+  a{
+    font-size: 14px;
+    text-decoration: underline;
+    color: rgba(82, 182, 255, 1);
+
   }
 `;
 

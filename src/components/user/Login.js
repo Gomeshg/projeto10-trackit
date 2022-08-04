@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {useState, React} from "react";
-import {login} from "../../services/APIs"
+import {setLogin} from "../../services/APIs"
 
 
 import Button from "../Button";
@@ -13,14 +13,15 @@ export default function Login(){
     const [password, setPassword] = useState('');
 
     function login(e){
-        // e.preventDefault();
+        e.preventDefault();
 
-        // const user = {
-        //     email: email,
-        //     password: password
-        // }
-        // login(user).then(req => console.log(req));
-        // login(user).catch(e => console.log(e))
+        const user = {
+            email: email,
+            password: password
+        }
+        
+        setLogin(user).then(req => console.log(req));
+        setLogin(user).catch(e => console.log(e))
     }
 
     // UI

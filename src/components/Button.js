@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import { ThreeDots } from  'react-loader-spinner'
 
-export default function Button({text}){
+
+
+export default function Button({stateButton, text}){
     let backgroundColor = 'rgba(82, 182, 255, 1)';
     let color = 'rgba(255, 255, 255, 1)';
 
@@ -36,9 +39,18 @@ export default function Button({text}){
         color = 'rgba(82, 182, 255, 1)'; 
     }
 
-    return (
-        <Wrapper color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>{text}</Wrapper>
-    );
+    if(stateButton){
+        return (
+            <Wrapper disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>
+                <ThreeDots height = "60" width = "60" radius = "9" color = 'white' ariaLabel = 'three-dots-loading' wrapperStyle wrapperClass />
+            </Wrapper>        
+        );
+    }
+    else{
+        return (
+            <Wrapper disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>{text}</Wrapper>        
+        );
+    }
 }
 
 const Wrapper = styled.button`

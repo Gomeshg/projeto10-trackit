@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 import Button from "../Button";
 import Logo from "../Logo"
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp(){
     

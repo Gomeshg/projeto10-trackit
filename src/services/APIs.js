@@ -42,7 +42,7 @@ function uncheckHabit(idHabit, config){
 	return promise;
 }
 
-function getHistory({config}){
+function getHistory(config){
 	const promise = axios.get(`${baseURL}/habits/history/daily`, config);
 	return promise;
 }

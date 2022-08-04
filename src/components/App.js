@@ -6,6 +6,7 @@ import { GlobalStyle } from "../styles/globalstyles";
 
 import Login from "./user/Login";
 import SignUp from './user/SignUp';
+import Teste from "./user/Teste";
 
 export default function App(){
 
@@ -17,6 +18,7 @@ export default function App(){
             <Routes>
               <Route path="/" element={<Login/>}/>
               <Route path="/sign-up" element={<SignUp/>}/>
+              <Route path="/Teste" element={<Teste/>}/>
             </Routes>
           
           </BrowserRouter>

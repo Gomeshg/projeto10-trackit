@@ -2,20 +2,27 @@ import styled from 'styled-components'
 import {useState, useEffect} from "react"
 import {getHabits} from "../../services/APIs";
 
+import { useSession } from '../../services/Session';
+
+
 import Top from "./Top";
 import Menu from "./Menu";
 
 
 export default function Today(){
-    const user = JSON.parse(localStorage.getItem('session'))
-    console.log(user)
+    // const user = JSON.parse(localStorage.getItem('session'))
+    
 
-    const [teste, setTest] = useState('');
+
+    const {session} = useSession();
+
+    console.log(session)
+
 
     return (
         <Wrapper>
 
-            <Top img={user.img}/>
+            <Top img={session.img}/>
 
             <Menu/>
         </Wrapper>

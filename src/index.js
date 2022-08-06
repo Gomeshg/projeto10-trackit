@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom'
 import App from './components/App'
 
-ReactDOM.render(<App/>, document.querySelector('.root'));
+import {AuthProvider} from './services/Session';
+
+ReactDOM.render(<AuthProvider><App/></AuthProvider> , document.querySelector('.root'));

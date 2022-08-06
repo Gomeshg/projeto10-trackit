@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export default function Top({img}){
 
-    console.log(img)
     return (
         <Wrapper>
             <h2>TrackIt</h2>

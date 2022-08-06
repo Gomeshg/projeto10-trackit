@@ -3,12 +3,16 @@ import {useState, React} from "react";
 import {setLogin} from "../../services/APIs";
 import { useNavigate, Link } from 'react-router-dom';
 
+import { useSession } from '../../services/Session';
+
 import Button from "../Button";
 import Logo from "../Logo";
 
 export default function Login(){
     
     // LOGIC
+    const {setSession} = useSession();
+
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
@@ -33,6 +37,7 @@ export default function Login(){
                 img: req.data.image
             }
 
+            setSession(session)
             localStorage.setItem('session', JSON.stringify(session));
             setStateButton(false);
             navigate('/Today');

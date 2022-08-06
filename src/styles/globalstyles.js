@@ -27,6 +27,15 @@ const GlobalStyle = createGlobalStyle`
     color: white;
   }
 
+  h3{
+    font-size: 23px;
+    color: rgba(18, 107, 165, 1);
+  }
+
+  p{
+    font-size: 18px;
+  }
+
   form{
       display: flex;
       flex-direction: column;

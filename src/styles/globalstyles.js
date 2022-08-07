@@ -42,23 +42,6 @@ const GlobalStyle = createGlobalStyle`
       gap: 5px;
   }
 
-
-  input{
-    /* min-width: 80%; */
-    /* max-width: 300px; */
-    width: 300px;
-    height: 40px;
-
-    border: 1px solid rgba(212, 212, 212, 1);
-    border-radius: 5px;
-    font-size: 20px;
-    color: rgba(219, 219, 219, 1);
-
-    padding-left: 10px;
-  }
-
-  
-
   a{
     font-size: 14px;
     text-decoration: underline;

@@ -35,8 +35,7 @@ export default function Habits(){
     useEffect(() => {
         
         if(token !== null){
-            // getHabits(config).then( req => setHabits([...req.data]));
-            getHabits(config).then( req => console.log(req.data)).catch(e => console.log(e))
+            getHabits(config).then( req => setHabits([...req.data])).catch(e => console.log(e))
         }
     }, [token]);
     
@@ -66,7 +65,7 @@ export default function Habits(){
                     </AddHabit>
 
 
-                    <NewHabit heightForm={heightForm} token={token}/> 
+                    <NewHabit heightForm={heightForm} setHeightForm={setHeightForm} token={token}/> 
 
                 
                     <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>                

@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { useState } from "react";
 import {postHabit} from "../../services/APIs";
 
-
-
 import Button from "../Button";
+import Input from "../Input";
 import Week from "./Week";
 
-export default function NewHabit({heightForm, token}){
+export default function NewHabit({heightForm, setHeightForm, token}){
     // LOGIC
     const [inputHabit, setInputHabit] = useState('');
     const [stateButton, setStateButton] = useState(false);
@@ -20,6 +19,10 @@ export default function NewHabit({heightForm, token}){
     }
 
     function save(){
+
+        setStateButton(true);
+
+
         let listOfDays = []
         weekDay.map((day,index) => {
             if(day){
@@ -38,7 +41,24 @@ export default function NewHabit({heightForm, token}){
             }
         }
 
-        postHabit(body, config).then(req => console.log(req)).catch(e => console.log(e));
+        if(listOfDays.length === 0){
+            alert("Escolha pelo menos um dia!")
+            setStateButton(false);
+        }
+
+        else{
+            postHabit(body, config).then(() => {
+                setStateButton(false);
+                setInputHabit(''); 
+                setWeekDay([false, false, false, false, false, false, false]);
+                setHeightForm(0);
+
+            }).catch(e => {
+                alert('Não foi possível adicionar novo hábito!')
+                console.log(e)
+                setStateButton(false);
+            });
+        }
     }
    
     // UI
@@ -46,8 +66,8 @@ export default function NewHabit({heightForm, token}){
         <Wrapper heightForm={heightForm}>
             <Content>
                 <section>
-                    <input type="text" placeholder="Nome do hábito" value={inputHabit} onChange={(e) => setInputHabit(e.target.value)} />
-                    <Week weekDay={weekDay} setWeekDay={setWeekDay} />
+                    <Input type="text" placeholder="Nome do hábito" value={inputHabit} setValue={setInputHabit} isRequired={true} stateButton={stateButton}/>
+                    <Week weekDay={weekDay} setWeekDay={setWeekDay} stateButton={stateButton} />
                 </section>
 
                 <BoxButton>

@@ -41,14 +41,31 @@ export default function Button({stateButton, text, click}){
 
     if(stateButton){
         return (
-            <Wrapper disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize} opacity="0.6">
-                <ThreeDots height = "60" width = "60" radius = "9" color = 'white' ariaLabel = 'three-dots-loading' wrapperStyle wrapperClass />
+            <Wrapper 
+            disabled={stateButton} 
+            color={color} 
+            backgroundColor={backgroundColor} 
+            width={width} height={height} 
+            fontSize={fontSize} 
+            opacity="0.6"
+            cursor="wait"
+            ><ThreeDots height = "60" width = "60" radius = "9" color = 'white' ariaLabel = 'three-dots-loading' wrapperStyle wrapperClass />
             </Wrapper>        
         );
     }
     else{
         return (
-            <Wrapper onClick={click} disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>{text}</Wrapper>        
+            <Wrapper 
+                onClick={click} 
+                disabled={stateButton} 
+                color={color} 
+                backgroundColor={backgroundColor} 
+                width={width} 
+                height={height} 
+                fontSize={fontSize}
+                cursor="pointer"
+                >{text}
+            </Wrapper>        
         );
     }
 }
@@ -59,7 +76,7 @@ const Wrapper = styled.button`
     align-items: center;
 
     border-radius: 5px;
-    cursor: pointer;
+    cursor: ${(props) => props.cursor};
 
     width: ${props => props.width};
     height: ${props => props.height};

@@ -6,6 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useSession } from '../../services/Session';
 
 import Button from "../Button";
+import Input from "../Input";
 import Logo from "../Logo";
 
 export default function Login(){
@@ -57,8 +58,8 @@ export default function Login(){
             </div>
             
             <form onSubmit={login}>
-                <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} required/>
-                <input type="password" placeholder="senha" value={password} onChange={e => setPassword(e.target.value)} required/>
+                <Input type="email" placeholder="email" value={email} setValue={setEmail} isRequired={true} stateButton={stateButton} />
+                <Input type="password" placeholder="senha" value={password} setValue={setPassword} isRequired={true} stateButton={stateButton} />
                 <Button stateButton={stateButton} type="submit" text="Entrar"/>
             </form>
             

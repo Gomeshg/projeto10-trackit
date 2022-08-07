@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-export default function Week({weekDay, setWeekDay}){
+export default function Week({weekDay, setWeekDay, stateButton}){
 
     // LOGIC
     const daysWeek = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
@@ -13,11 +13,35 @@ export default function Week({weekDay, setWeekDay}){
     }
 
     // UI
-    return (
-        <Wrapper>
-            {weekDay.map((day, index) => <Day key={index} color={day ? "white":"rgba(219, 219, 219, 1)"} backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} value={index} onClick={(e) => clickDay(e.target.getAttribute('value')) }>{daysWeek[index]}</Day>)}
-        </Wrapper>
-    );
+
+    if(stateButton){
+        return (
+            <Wrapper>
+                {weekDay.map((day, index) => 
+                <Day key={index} 
+                     color={day ? "white":"rgba(219, 219, 219, 1)"} 
+                     backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} 
+                     value={index} 
+                     cursor="wait" >{daysWeek[index]}
+                </Day>)}
+            </Wrapper>
+        );
+    }
+    else{
+        return (
+            <Wrapper>
+                {weekDay.map((day, index) => 
+                <Day key={index} 
+                     color={day ? "white":"rgba(219, 219, 219, 1)"} 
+                     backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} 
+                     value={index} 
+                     onClick={(e) => clickDay(e.target.getAttribute('value'))} 
+                     cursor="pointer" >{daysWeek[index]}
+                </Day>)}
+            </Wrapper>
+        );
+    }
+    
 }
 
 const Wrapper = styled.div`
@@ -40,7 +64,7 @@ const Day = styled.div`
     justify-content: center;
     align-items: center;
     
-    cursor: pointer;
+    cursor: ${(props) => props.cursor};
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color}
 `;

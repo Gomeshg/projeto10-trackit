@@ -7,17 +7,18 @@ import Button from '../Button';
 import Top from "./Top";
 import Menu from "./Menu";
 import NewHabit from "./NewHabit";
+import Habit from "../trackit/Habit";
 
 export default function Habits(){
     // LOGIC
     const {session} = useSession();
     const [stateButton, setStateButton] = useState(false);
     const [heightForm, setHeightForm] = useState(0);
-    const [habits, setHabits] = useState([]);
+    const [habits, setHabits] = useState(null);
     const [token, setToken] = useState(null);
     let config = {}
 
-    console.log(habits)
+    
     
     if(session.token){
         
@@ -64,11 +65,25 @@ export default function Habits(){
                         <Button click={openForm} stateButton={stateButton} text="+"/>
                     </AddHabit>
 
+                    
 
-                    <NewHabit heightForm={heightForm} setHeightForm={setHeightForm} token={token}/> 
+                    <NewHabit heightForm={heightForm} setHeightForm={setHeightForm} token={token} setHabits={setHabits}/> 
 
-                
-                    <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>                
+                    {habits !== null ? 
+
+                        habits.length === 0 ?
+                            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>    
+                                    
+                        :
+                            <HabitContainer>
+                                {habits.map(habit => <Habit key={habit.id} id={habit.id} name={habit.name} days={habit.days} config={config} setHabits={setHabits}/> )}
+                            </HabitContainer>
+                        
+                        :
+
+                        <p>Carregando...</p>
+                    }
+                   
             </Content>
             
             <Menu/>
@@ -101,4 +116,11 @@ const Content = styled.div`
 const AddHabit = styled.div`
     display: flex;
     justify-content: space-between;
+`;
+
+
+const HabitContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 `;

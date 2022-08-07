@@ -1,7 +1,19 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-export default function Week({weekDay, setWeekDay, stateButton}){
+export default function Week({weekDay, setWeekDay, stateButton, days}){
+
+    const daysHabit = [false, false, false, false, false, false, false]
+    if(days){
+        for(let i = 0; i < daysHabit.length; i++){
+            for(let j = 0; j < days.length; j++){
+                if(i === days[j]){
+                    daysHabit[i] = true;
+                }
+            }
+        }
+    }
+
 
     // LOGIC
     const daysWeek = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
@@ -15,17 +27,36 @@ export default function Week({weekDay, setWeekDay, stateButton}){
     // UI
 
     if(stateButton){
-        return (
-            <Wrapper>
-                {weekDay.map((day, index) => 
-                <Day key={index} 
-                     color={day ? "white":"rgba(219, 219, 219, 1)"} 
-                     backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} 
-                     value={index} 
-                     cursor="wait" >{daysWeek[index]}
-                </Day>)}
-            </Wrapper>
-        );
+
+        if(days){
+            return (
+                <Wrapper>
+                    {daysHabit.map((day, index) => 
+                    <Day key={index} 
+                         color={day ? "white":"rgba(219, 219, 219, 1)"} 
+                         backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} 
+                         value={index} 
+                         cursor="auto"
+                         >{daysWeek[index]}
+                    </Day>)}
+                </Wrapper>
+            );
+        }
+        else{
+            return (
+                <Wrapper>
+                    {weekDay.map((day, index) => 
+                    <Day key={index} 
+                         color={day ? "white":"rgba(219, 219, 219, 1)"} 
+                         backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} 
+                         value={index} 
+                         cursor="pointer"
+                         >{daysWeek[index]}
+                    </Day>)}
+                </Wrapper>
+            );
+        }
+        
     }
     else{
         return (
@@ -36,12 +67,12 @@ export default function Week({weekDay, setWeekDay, stateButton}){
                      backgroundColor={day ? "rgba(207, 207, 207, 1)":'white'} 
                      value={index} 
                      onClick={(e) => clickDay(e.target.getAttribute('value'))} 
-                     cursor="pointer" >{daysWeek[index]}
+                     cursor="pointer"
+                     >{daysWeek[index]}
                 </Day>)}
             </Wrapper>
         );
     }
-    
 }
 
 const Wrapper = styled.div`

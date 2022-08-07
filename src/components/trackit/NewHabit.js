@@ -1,21 +1,20 @@
 import styled from "styled-components";
 import { useState } from "react";
-import {postHabit} from "../../services/APIs";
+import {postHabit, getHabits} from "../../services/APIs";
 
 import Button from "../Button";
 import Input from "../Input";
 import Week from "./Week";
 
-export default function NewHabit({heightForm, setHeightForm, token}){
+export default function NewHabit({heightForm, setHeightForm, token, setHabits}){
     // LOGIC
     const [inputHabit, setInputHabit] = useState('');
     const [stateButton, setStateButton] = useState(false);
     const [weekDay, setWeekDay] = useState([false, false, false, false, false, false, false]);
     
     
-
     function cancel(){
-
+        setHeightForm(0);
     }
 
     function save(){
@@ -53,6 +52,9 @@ export default function NewHabit({heightForm, setHeightForm, token}){
                 setWeekDay([false, false, false, false, false, false, false]);
                 setHeightForm(0);
 
+                getHabits(config).then((req) => {
+                    setHabits([...req.data])
+                }).catch(e => console.log(e));
             }).catch(e => {
                 alert('Não foi possível adicionar novo hábito!')
                 console.log(e)

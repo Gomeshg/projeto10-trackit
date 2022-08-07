@@ -32,8 +32,14 @@ const GlobalStyle = createGlobalStyle`
     color: rgba(18, 107, 165, 1);
   }
 
+  h4{
+    font-size: 20px;
+    color: rgba(102, 102, 102, 1);
+  }
+
   p{
     font-size: 18px;
+    color: rgba(102, 102, 102, 1);
   }
 
   form{

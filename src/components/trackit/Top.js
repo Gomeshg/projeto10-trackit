@@ -25,6 +25,8 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    z-index: 1;
+
     img{
         background-size: cover;
         border-radius: 50%;

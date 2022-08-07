@@ -3,10 +3,10 @@ import { ThreeDots } from  'react-loader-spinner'
 
 
 
-export default function Button({stateButton, text}){
+export default function Button({stateButton, text, click}){
     let backgroundColor = 'rgba(82, 182, 255, 1)';
     let color = 'rgba(255, 255, 255, 1)';
-
+   
     let width;
     let height;
     let fontSize;
@@ -41,14 +41,14 @@ export default function Button({stateButton, text}){
 
     if(stateButton){
         return (
-            <Wrapper disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>
+            <Wrapper disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize} opacity="0.6">
                 <ThreeDots height = "60" width = "60" radius = "9" color = 'white' ariaLabel = 'three-dots-loading' wrapperStyle wrapperClass />
             </Wrapper>        
         );
     }
     else{
         return (
-            <Wrapper disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>{text}</Wrapper>        
+            <Wrapper onClick={click} disabled={stateButton} color={color} backgroundColor={backgroundColor} width={width} height={height} fontSize={fontSize}>{text}</Wrapper>        
         );
     }
 }
@@ -66,5 +66,7 @@ const Wrapper = styled.button`
 
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color};
-    font-size: ${props => props.fontSize}
+    font-size: ${props => props.fontSize};
+
+    opacity: ${(props) => props.opacity};
 `;

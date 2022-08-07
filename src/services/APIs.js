@@ -12,7 +12,7 @@ function setLogin(body){
 	return promise;
 }
 
-function setHabit(body, config){
+function postHabit(body, config){
 	const promise = axios.post(`${baseURL}/habits`, body, config);
 	return promise;
 }
@@ -48,4 +48,4 @@ function getHistory(config){
 }
 
 
-export {setSignUp, setLogin, setHabit, getHabits, deleteHabit, getHabitsToday, checkHabit, uncheckHabit, getHistory};
+export {setSignUp, setLogin, postHabit, getHabits, deleteHabit, getHabitsToday, checkHabit, uncheckHabit, getHistory};

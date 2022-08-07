@@ -30,7 +30,6 @@ export default function Login(){
         setStateButton(true);
 
         setLogin(user).then(req => {
-            // console.log(req.data);
             let session = {
                 name: req.data.name,
                 token: req.data.token,

@@ -44,8 +44,9 @@ const GlobalStyle = createGlobalStyle`
 
 
   input{
-    min-width: 80%;
-    max-width: 300px;
+    /* min-width: 80%; */
+    /* max-width: 300px; */
+    width: 300px;
     height: 40px;
 
     border: 1px solid rgba(212, 212, 212, 1);
@@ -55,6 +56,8 @@ const GlobalStyle = createGlobalStyle`
 
     padding-left: 10px;
   }
+
+  
 
   a{
     font-size: 14px;

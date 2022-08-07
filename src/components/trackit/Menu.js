@@ -8,7 +8,7 @@ export default function Menu(){
     let percentage = 77;
     return (
         <Wrapper>
-            <Link to="/habits">Hábitos</Link>
+            <Link to="/Habits">Hábitos</Link>
             <section>
                 {/* <Link to="/today">Hoje</Link> */}
                 <CircularProgressbar value={percentage} text="Hoje" background backgroundPadding={6} styles={buildStyles({
@@ -21,7 +21,7 @@ export default function Menu(){
                     }) 
                 }/>
             </section>
-            <Link to="/historic">Histórico</Link>
+            <Link to="/Historic">Histórico</Link>
         </Wrapper>
     );
 }

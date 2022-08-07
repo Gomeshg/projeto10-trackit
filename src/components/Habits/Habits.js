@@ -3,11 +3,11 @@ import { useSession } from '../../services/Session';
 import {getHabits, setHabit, deleteHabit} from '../../services/APIs';
 import {useState, useEffect} from 'react';
 
-import Button from '../Button';
-import Top from "./Top";
-import Menu from "./Menu";
+import Button from '../Generics/Button';
+import Top from "../Generics/Top";
+import Menu from "../Generics/Menu";
 import NewHabit from "./NewHabit";
-import Habit from "../trackit/Habit";
+import Habit from "../Generics/Habit";
 
 export default function Habits(){
     // LOGIC
@@ -97,10 +97,11 @@ const Wrapper = styled.div`
     max-height: min-content;
 
     padding-top: 90px;
-    padding-bottom: 100px;
+    padding-bottom: 110px;
 
     p{
         color:rgba(102, 102, 102, 1);
+        text-align: center;
     }
 `;
 

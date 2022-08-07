@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import ellipse from "../img/Ellipse3.png"
-import vector1 from "../img/Vector1.png"
-import vector2 from "../img/Vector2.png"
-import vector3 from "../img/Vector3.png"
-import vector4 from "../img/Vector4.png"
+import ellipse from "../../img/Ellipse3.png"
+import vector1 from "../../img/Vector1.png"
+import vector2 from "../../img/Vector2.png"
+import vector3 from "../../img/Vector3.png"
+import vector4 from "../../img/Vector4.png"
 
 export default function Logo(){
     return (

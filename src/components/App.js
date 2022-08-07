@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { GlobalStyle } from "../styles/globalstyles";
+import { GlobalStyle } from "../GlobalStyles/globalstyles";
 
 import Login from "./user/Login";
 import SignUp from "./user/SignUp";
-import Today from "../components/trackit/Today";
-import Habits from "../components/trackit/Habits";
+import Today from "../components/Today/Today";
+import Habits from "../components/Habits/Habits";
 
 export default function App(){
 

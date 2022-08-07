@@ -10,16 +10,17 @@ export default function Menu(){
         <Wrapper>
             <Link to="/Habits">Hábitos</Link>
             <section>
-                {/* <Link to="/today">Hoje</Link> */}
-                <CircularProgressbar value={percentage} text="Hoje" background backgroundPadding={6} styles={buildStyles({
-                        // pathColor: `rgba(82, 182, 255, ${percentage / 100})`,
-                        pathColor: 'white' ,
-                        textColor: 'white',
-                        trailColor: 'transparent',
-                        backgroundColor: 'rgba(82, 182, 255, 1)',
-                        pathTransitionDuration: 0.5
-                    }) 
-                }/>
+                <Link to="/today">
+                    <CircularProgressbar value={percentage} text="Hoje" background backgroundPadding={6} styles={buildStyles({
+                            // pathColor: `rgba(82, 182, 255, ${percentage / 100})`,
+                            pathColor: 'white' ,
+                            textColor: 'white',
+                            trailColor: 'transparent',
+                            backgroundColor: 'rgba(82, 182, 255, 1)',
+                            pathTransitionDuration: 0.5
+                        }) 
+                    }/>
+                </Link>
             </section>
             <Link to="/Historic">Histórico</Link>
         </Wrapper>
@@ -41,7 +42,6 @@ const Wrapper = styled.div`
     align-items: center;
 
     section{
-        /* background-color: rgba(82, 182, 255, 1); */
         height: 91px;
         width: 91px;
         border-radius: 50%;
@@ -57,13 +57,10 @@ const Wrapper = styled.div`
         a{
             color: white;
         }
-
-
     }
 
     a{
         text-decoration: none;
         font-size: 18px;
     }
-
 `;

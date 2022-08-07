@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { useState } from "react";
 import {postHabit, getHabits} from "../../services/APIs";
 
-import Button from "../Button";
-import Input from "../Input";
+import Button from "../Generics/Button";
+import Input from "../Generics/Input";
 import Week from "./Week";
 
 export default function NewHabit({heightForm, setHeightForm, token, setHabits}){

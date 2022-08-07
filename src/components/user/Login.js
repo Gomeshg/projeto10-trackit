@@ -5,9 +5,9 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import { useSession } from '../../services/Session';
 
-import Button from "../Button";
-import Input from "../Input";
-import Logo from "../Logo";
+import Button from "../Generics/Button";
+import Input from "../Generics/Input";
+import Logo from "../Generics/Logo";
 
 export default function Login(){
     

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import {setSignUp} from '../../services/APIs';
 import {useState} from 'react';
 
-import Button from "../Button";
-import Logo from "../Logo"
+import Button from "../Generics/Button";
+import Logo from "../Generics/Logo"
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function SignUp(){

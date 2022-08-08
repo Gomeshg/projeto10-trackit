@@ -66,8 +66,8 @@ export default function Habit({id, name, days, done, currentSequence, highestSeq
             <Wrapper2>
                 <h4>{name}</h4>
                 <TextBox>
-                    <p>Sequência atual: {currentSequence} dias</p>
-                    <p>Seu recorde: {highestSequence} dias</p>
+                    <Text color={done || (currentSequence == highestSequence && currentSequence !== 0) ? "rgba(143, 197, 73, 1)": "rgba(102, 102, 102, 1)"} >Sequência atual: <span>{currentSequence} {currentSequence > 1 ? "dias":"dia"}</span> </Text>
+                    <Text color={highestSequence === currentSequence && highestSequence !== 0 ? "rgba(143, 197, 73, 1)": "rgba(102, 102, 102, 1)"}>Seu recorde: <span>{highestSequence} {highestSequence > 1 ? "dias":"dia"}</span></Text>
                 </TextBox>
 
                 <CheckBox 
@@ -145,9 +145,16 @@ const TextBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+`;
 
-    p{
+
+const Text = styled.div`
+    font-size: 13px;
+    line-height: 20px;
+    color: rgba(102, 102, 102, 1);
+    span{
         font-size: 13px;
         line-height: 20px;
+        color: ${(props) => props.color};
     }
 `;

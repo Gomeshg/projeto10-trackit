@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {useState, useEffect} from "react";
 import {getHabitsToday} from "../../services/APIs";
 import { useSession } from '../../services/Session';
-
 import Top from "../Generics/Top";
 import Menu from "../Generics/Menu";
 import Habit from "../Generics/Habit";
@@ -10,20 +9,16 @@ import Date from "./Date";
 import Percentage from "./Percentage";
 
 export default function Today(){
-
     // LOGIC
     const {session} = useSession();
     const [token, setToken] = useState(null);
     const [habits, setHabits] = useState(null);
     let config = {};
 
-
     if(session.token){
-        
         if(token === null){
             setToken(session.token);
         }
-
         config = {
             headers: {
                 Authorization: `Bearer ${session.token}`  
@@ -32,7 +27,6 @@ export default function Today(){
     }
         
     useEffect(() => {
-        
         if(token !== null){
             getHabitsToday(config).then( req => setHabits([...req.data])).catch(e => console.log(e));
 

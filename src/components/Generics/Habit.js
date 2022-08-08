@@ -61,7 +61,6 @@ export default function Habit({id, name, days, done, currentSequence, highestSeq
     }
 
     else{
-        
         return (
             <Wrapper2>
                 <h4>{name}</h4>

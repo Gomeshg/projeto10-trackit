@@ -1,7 +1,5 @@
-import styled from 'styled-components'
-import { ThreeDots } from  'react-loader-spinner'
-
-
+import styled from 'styled-components';
+import { ThreeDots } from  'react-loader-spinner';
 
 export default function Button({stateButton, text, click}){
     let backgroundColor = 'rgba(82, 182, 255, 1)';

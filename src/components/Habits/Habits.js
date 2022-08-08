@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useSession } from '../../services/Session';
 import {getHabits, setHabit, deleteHabit} from '../../services/APIs';
 import {useState, useEffect} from 'react';
-
 import Button from '../Generics/Button';
 import Top from "../Generics/Top";
 import Menu from "../Generics/Menu";
@@ -16,10 +15,8 @@ export default function Habits(){
     const [heightForm, setHeightForm] = useState(0);
     const [habits, setHabits] = useState(null);
     const [token, setToken] = useState(null);
-    let config = {}
+    let config = {};
 
-    
-    
     if(session.token){
         
         if(token === null){
@@ -36,14 +33,10 @@ export default function Habits(){
     useEffect(() => {
         
         if(token !== null){
-            getHabits(config).then( req => setHabits([...req.data])).catch(e => console.log(e))
+            getHabits(config).then( req => setHabits([...req.data])).catch(e => console.log(e));
         }
     }, [token]);
     
-
-
-   
-
     function openForm(){
         if(heightForm === 0){
             setHeightForm(180);
@@ -58,7 +51,6 @@ export default function Habits(){
     return (
         <Wrapper>
             <Top img={session.img}/>
-
             <Content>
                     <AddHabit>
                         <h3>Meus hábitos</h3>
@@ -83,9 +75,7 @@ export default function Habits(){
 
                         <p>Carregando...</p>
                     }
-                   
             </Content>
-            
             <Menu/>
         </Wrapper>
     );
@@ -118,7 +108,6 @@ const AddHabit = styled.div`
     display: flex;
     justify-content: space-between;
 `;
-
 
 const HabitContainer = styled.div`
     display: flex;

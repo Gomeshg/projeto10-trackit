@@ -1,18 +1,19 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import { useSession } from '../../services/Session';
 import { CircularProgressbar, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 export default function Menu(){
-
-    let percentage = 77;
+    
+    const {percentage} = useSession();
+    
     return (
         <Wrapper>
             <Link to="/Habits">Hábitos</Link>
             <section>
                 <Link to="/today">
                     <CircularProgressbar value={percentage} text="Hoje" background backgroundPadding={6} styles={buildStyles({
-                            // pathColor: `rgba(82, 182, 255, ${percentage / 100})`,
                             pathColor: 'white' ,
                             textColor: 'white',
                             trailColor: 'transparent',
@@ -28,7 +29,6 @@ export default function Menu(){
 }
 
 const Wrapper = styled.div`
-
     height: 70px;
     background-color: white;
     

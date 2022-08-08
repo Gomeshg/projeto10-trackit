@@ -6,6 +6,7 @@ export const AuthContext = createContext({});
 export function AuthProvider(props){
 
     const [session, setSession] = useState({});
+    const [percentage, setPercentage] = useState(0);
 
     useEffect(() => {
         const userStorage = localStorage.getItem('session')
@@ -15,7 +16,7 @@ export function AuthProvider(props){
     }, []);
 
     return (
-        <AuthContext.Provider value={{session, setSession}}>
+        <AuthContext.Provider value={{session, setSession, percentage, setPercentage}}>
             {props.children}
         </AuthContext.Provider>
     );

@@ -1,8 +1,9 @@
 import styled from "styled-components";
-
+import { useSession } from '../../services/Session';
 
 export default function Percentage({habits}){
 
+    const {setPercentage} = useSession();
     const qt_habits = habits !== null ? habits.length:null;
     let qt_HabitsDone = 0; 
     let percentage = 0;
@@ -12,11 +13,10 @@ export default function Percentage({habits}){
     }
     if(qt_habits !== null){
         percentage = Math.trunc(((qt_HabitsDone / qt_habits ) * 100));
+        setPercentage(percentage);
     }
   
-
     {qt_HabitsDone === 0 ? 
-                    
         <p>Nenhum hábito concluído ainda</p>
         :
         <p>{percentage}% dos hábitos concluídos</p>

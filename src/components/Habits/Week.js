@@ -3,7 +3,8 @@ import { useState } from "react";
 
 export default function Week({weekDay, setWeekDay, stateButton, days}){
 
-    const daysHabit = [false, false, false, false, false, false, false]
+    // LOGIC
+    const daysHabit = [false, false, false, false, false, false, false];
     if(days){
         for(let i = 0; i < daysHabit.length; i++){
             for(let j = 0; j < days.length; j++){
@@ -14,8 +15,6 @@ export default function Week({weekDay, setWeekDay, stateButton, days}){
         }
     }
 
-
-    // LOGIC
     const daysWeek = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 
     function clickDay(d){
@@ -25,7 +24,6 @@ export default function Week({weekDay, setWeekDay, stateButton, days}){
     }
 
     // UI
-
     if(stateButton){
 
         if(days){

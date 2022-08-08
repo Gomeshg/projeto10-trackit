@@ -2,20 +2,15 @@ import styled from "styled-components";
 import {useState, React} from "react";
 import {setLogin} from "../../services/APIs";
 import { useNavigate, Link } from 'react-router-dom';
-
 import { useSession } from '../../services/Session';
-
 import Button from "../Generics/Button";
 import Input from "../Generics/Input";
 import Logo from "../Generics/Logo";
 
 export default function Login(){
-    
     // LOGIC
     const {setSession} = useSession();
-
     const navigate = useNavigate();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [stateButton, setStateButton] = useState(false);

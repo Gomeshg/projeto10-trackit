@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import {setSignUp} from '../../services/APIs';
 import {useState} from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 import Button from "../Generics/Button";
-import Logo from "../Generics/Logo"
-import { useNavigate, Link } from 'react-router-dom';
+import Logo from "../Generics/Logo";
+import Input from "../Generics/Input";
 
 export default function SignUp(){
     
@@ -29,15 +30,15 @@ export default function SignUp(){
             password: password
         }
 
-        setStateButton(true)
+        setStateButton(true);
         setSignUp(user).then(req => {
-            setStateButton(false)
-            navigate('/')
+            setStateButton(false);
+            navigate('/');
         });
         setSignUp(user).catch(e => {
-            console.log(e)
-            alert('Cadastro inválido! Tente novamente...')
-            setStateButton(false)
+            console.log(e);
+            alert('Cadastro inválido! Tente novamente...');
+            setStateButton(false);
         });
     }
 
@@ -50,10 +51,10 @@ export default function SignUp(){
             </div>
             
             <form onSubmit={signUp}>
-                <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required/>
-                <input type="password" placeholder="Senha" value={password} onChange={e => setPassword(e.target.value)} required/>
-                <input type="text" placeholder="Nome" value={userName} onChange={e => setUserName(e.target.value)} required/>
-                <input type="url" placeholder="Foto" value={picture} onChange={e => setPicture(e.target.value)} required/>            
+                <Input type="email" placeholder="Email" value={email} setValue={setEmail} isRequired={true} stateButton={stateButton}/>
+                <Input type="password" placeholder="Senha" value={password} setValue={setPassword} isRequired={true} stateButton={stateButton}/>
+                <Input type="text" placeholder="Nome" value={userName} setValue={setUserName} isRequired={true} stateButton={stateButton}/>
+                <Input type="url" placeholder="Foto" value={picture} setValue={setPicture} isRequired={true} stateButton={stateButton}/>
                 <Button stateButton={stateButton} type="submit" text="Cadastrar"/>
             </form>
             <Link to="/">Não possui uma conta? Faça login!</Link>

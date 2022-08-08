@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
 import {postHabit, getHabits} from "../../services/APIs";
-
 import Button from "../Generics/Button";
 import Input from "../Generics/Input";
 import Week from "./Week";
@@ -22,26 +21,26 @@ export default function NewHabit({heightForm, setHeightForm, token, setHabits}){
         setStateButton(true);
 
 
-        let listOfDays = []
+        let listOfDays = [];
         weekDay.map((day,index) => {
             if(day){
-                listOfDays.push(index)
+                listOfDays.push(index);
             }
         })
     
         const body = {
             name: inputHabit,
             days: listOfDays
-        }
+        };
 
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }
+        };
 
         if(listOfDays.length === 0){
-            alert("Escolha pelo menos um dia!")
+            alert("Escolha pelo menos um dia!");
             setStateButton(false);
         }
 
@@ -53,11 +52,11 @@ export default function NewHabit({heightForm, setHeightForm, token, setHabits}){
                 setHeightForm(0);
 
                 getHabits(config).then((req) => {
-                    setHabits([...req.data])
+                    setHabits([...req.data]);
                 }).catch(e => console.log(e));
             }).catch(e => {
-                alert('Não foi possível adicionar novo hábito!')
-                console.log(e)
+                alert('Não foi possível adicionar novo hábito!');
+                console.log(e);
                 setStateButton(false);
             });
         }
@@ -86,9 +85,7 @@ const Wrapper = styled.div`
     height: ${(props) => props.heightForm};
     background-color: white;
     transition: height 1s ease-in-out;
-
     border-radius: 5px;
-
     overflow: hidden;
 `;
 
@@ -96,7 +93,6 @@ const Content = styled.div`
     width: 90%;
     margin: 0 auto;
     padding: 20px 0px;
-
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -113,7 +109,6 @@ const Content = styled.div`
 `;
 
 const BoxButton = styled.div`
-
     display: flex;
     justify-content: flex-end;
     gap: 20px;

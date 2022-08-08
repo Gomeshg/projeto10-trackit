@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import dayjs from "dayjs";
 
-
 export default function Date(){
-
     const listDaysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
     const dayWeek = listDaysWeek[dayjs().day()];
     const dayMonth = dayjs().date();

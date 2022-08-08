@@ -21,7 +21,6 @@ export default function Habit({id, name, days, done, currentSequence, highestSeq
         }
     }
 
-    console.log(config)
     const [habitDone, setHabitDone] = useState(done);
     const body = {};
 
@@ -31,6 +30,7 @@ export default function Habit({id, name, days, done, currentSequence, highestSeq
 
             setHabitDone(!habitDone);
             getHabitsToday(config).then((req) => {
+                
                 setHabits([...req.data]);
 
             }).catch(e => console.log(e));
@@ -39,9 +39,10 @@ export default function Habit({id, name, days, done, currentSequence, highestSeq
 
     function uncheckHab(){
         uncheckHabit(id, config, body).then(() => {
+            
             setHabitDone(!habitDone);
-
             getHabitsToday(config).then((req) => {
+                
                 setHabits([...req.data]);
 
             }).catch(e => console.log(e));

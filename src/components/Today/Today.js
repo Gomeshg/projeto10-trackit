@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import {useState, useEffect} from "react";
 import {getHabitsToday} from "../../services/APIs";
 import { useSession } from '../../services/Session';
-import dayjs from "dayjs";
 
 import Top from "../Generics/Top";
 import Menu from "../Generics/Menu";
 import Habit from "../Generics/Habit";
+import Date from "./Date";
+import Percentage from "./Percentage";
 
 export default function Today(){
 
@@ -14,28 +15,7 @@ export default function Today(){
     const {session} = useSession();
     const [token, setToken] = useState(null);
     const [habits, setHabits] = useState(null);
-    const qt_habits = habits !== null ? habits.length:null;
     let config = {};
-
-    const listDaysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-    const dayWeek = listDaysWeek[dayjs().day()];
-    const dayMonth = dayjs().date();
-    const month = dayjs().month() > 8 ? `${(dayjs().month() + 1)}`: `0${(dayjs().month() + 1)}`;
-
-    
-    // let qt_HabitsDone = 0; 
-    // let percentage = 0;
-    // if(habits !== null){
-    //     habits.map(habit => habit.done ? qt_HabitsDone++:'');
-    // }
-
-    // if(qt_HabitsDone !== 0){
-    //     percentage = Math.trunc((qt_habits / qt_HabitsDone) / 10);
-    // }
-
-    if(habits !== null){
-        console.log(habits)
-    }
 
 
     if(session.token){
@@ -67,12 +47,8 @@ export default function Today(){
             <Top img={session.img}/>
 
             <Title>
-                <h3>{dayWeek}, {dayMonth}/{month}</h3>
-                {/* {qt_HabitsDone === 0 ? 
-                    
-                    <p>Nenhum hábito concluído ainda</p>
-                    :
-                } */}
+                <Date/>
+                <Percentage habits={habits}/>
             </Title>
 
             <HabitContainer>
